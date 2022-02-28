@@ -15,3 +15,12 @@ function checkMaxStrLength(str, maxLenght) {
   return str.length <= maxLenght;
 }
 checkMaxStrLength('larissa', 10);
+
+const description = [
+  'Прекрасный день',
+  'Отдыхаю',
+  'Посмотрите на это',
+  'Люблю гулять',
+  'Не хочу на работу',
+];
+description.slice(0,5); // Чтобы не выдавало ошибку
