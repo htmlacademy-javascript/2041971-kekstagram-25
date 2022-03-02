@@ -16,14 +16,13 @@ function checkMaxStrLength(str, maxLenght) {
 }
 checkMaxStrLength('larissa', 10);
 
-const descriptions = [
+const DESCRIPTIONS = [
   'Прекрасный день',
   'Отдыхаю',
   'Посмотрите на это',
   'Люблю гулять',
   'Не хочу на работу',
 ];
-descriptions.slice(0,5); // Чтобы не выдавало ошибку
 
 const NAMES = [
   'Даша',
@@ -42,17 +41,32 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-const createMessage = () => {
+const createComments = () => {
   const randomId = getRandomeInInclusie(1,1000);
   const randomAvatar = getRandomeInInclusie(1,6);
   const randomMessageIndex = getRandomeInInclusie(0,MESSAGES.length-1);
   const randomNameIndex = getRandomeInInclusie(0,NAMES.length-1);
   return {
     id: randomId,
-    avatar: randomAvatar, //Тут мне не понятно как сделать 'img/avatar-' + randomAvatar + '.svg', очевидно, не то
-    messege: MESSAGES [randomMessageIndex] ,
-    name: NAMES [randomNameIndex],
+    avatar: `img/avatar-${randomAvatar}.svg`,
+    messege: MESSAGES[randomMessageIndex] ,
+    name: NAMES[randomNameIndex],
   };
 };
 
-createMessage.slice(0,5); // Чтобы не выдавало ошибку
+const createDescriptionPhoto = () => {
+  const randomId = getRandomeInInclusie(1,25);
+  const randomUrl=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+  window.console.log(randomUrl[0]); //чтобы не выдавал ошибку
+  const randomDescription = getRandomeInInclusie(0,DESCRIPTIONS.length-1);
+  const randomLikes = getRandomeInInclusie(15,200);
+  return{
+    id: randomId,
+    //url: randomUrl.forEach((i) => {`photos/${i}.jpg`}), нужна помощь
+    description: randomDescription,
+    likes: randomLikes,
+    comments: createComments,
+  };
+
+};
+window.console.log(createDescriptionPhoto);
