@@ -41,32 +41,34 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-const createComments = () => {
+const getRamdomArrayElement = (elements) => elements [getRandomeInInclusie(0, elements.length - 1)];
+
+const createComment = () => {
   const randomId = getRandomeInInclusie(1,1000);
   const randomAvatar = getRandomeInInclusie(1,6);
-  const randomMessageIndex = getRandomeInInclusie(0,MESSAGES.length-1);
-  const randomNameIndex = getRandomeInInclusie(0,NAMES.length-1);
   return {
     id: randomId,
     avatar: `img/avatar-${randomAvatar}.svg`,
-    messege: MESSAGES[randomMessageIndex] ,
-    name: NAMES[randomNameIndex],
+    messege: getRamdomArrayElement(MESSAGES), //MESSAGES[getRandomeInInclusie(0,MESSAGES.length-1)] ,
+    name: getRamdomArrayElement(NAMES),//NAMES[getRandomeInInclusie(0,NAMES.length-1)],
   };
 };
 
-const createDescriptionPhoto = () => {
-  const randomId = getRandomeInInclusie(1,25);
-  const randomUrl=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
-  window.console.log(randomUrl[0]); //чтобы не выдавал ошибку
-  const randomDescription = getRandomeInInclusie(0,DESCRIPTIONS.length-1);
+const createDescriptionPhoto = (index) => {
   const randomLikes = getRandomeInInclusie(15,200);
   return{
-    id: randomId,
-    //url: randomUrl.forEach((i) => {`photos/${i}.jpg`}), нужна помощь
-    description: randomDescription,
+    id: index,
+    url: `photos/${index}.jpg`,
+    description: getRamdomArrayElement(DESCRIPTIONS),//DESCRIPTIONS[getRandomeInInclusie(0,DESCRIPTIONS.length-1)],
     likes: randomLikes,
-    comments: createComments,
+    comments:[createComment(),createComment()],
   };
-
 };
-window.console.log(createDescriptionPhoto);
+window.console.log(createDescriptionPhoto());
+
+const photoDescriptions = [];
+for (let i=1; i<=25; i++) {
+  photoDescriptions.push(createDescriptionPhoto(i));
+}
+window.console.log(photoDescriptions);
+
