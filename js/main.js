@@ -49,8 +49,8 @@ const createComment = () => {
   return {
     id: randomId,
     avatar: `img/avatar-${randomAvatar}.svg`,
-    messege: getRamdomArrayElement(MESSAGES), //MESSAGES[getRandomeInInclusie(0,MESSAGES.length-1)] ,
-    name: getRamdomArrayElement(NAMES),//NAMES[getRandomeInInclusie(0,NAMES.length-1)],
+    messege: getRamdomArrayElement(MESSAGES),
+    name: getRamdomArrayElement(NAMES),
   };
 };
 
@@ -59,16 +59,19 @@ const createDescriptionPhoto = (index) => {
   return{
     id: index,
     url: `photos/${index}.jpg`,
-    description: getRamdomArrayElement(DESCRIPTIONS),//DESCRIPTIONS[getRandomeInInclusie(0,DESCRIPTIONS.length-1)],
+    description: getRamdomArrayElement(DESCRIPTIONS),
     likes: randomLikes,
     comments:[createComment(),createComment()],
   };
 };
 window.console.log(createDescriptionPhoto());
 
-const photoDescriptions = [];
-for (let i=1; i<=25; i++) {
-  photoDescriptions.push(createDescriptionPhoto(i));
-}
-window.console.log(photoDescriptions);
+const getMockPhotos = () => {
+  const photos = [];
+  for (let i=1; i<=25; i++) {
+    photos.push(createDescriptionPhoto(i));
+  }
+  return photos;
+};
+window.console.log(getMockPhotos);
 
