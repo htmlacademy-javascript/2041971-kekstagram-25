@@ -48,7 +48,6 @@ const createDescriptionPhoto = (index) => {
     comments:[createComment(),createComment()],
   };
 };
-window.console.log(createDescriptionPhoto());
 
 const getMockPhotos = () => {
   const photos = [];
