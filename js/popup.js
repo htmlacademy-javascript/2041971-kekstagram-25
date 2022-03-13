@@ -1,20 +1,21 @@
-import { getMockPhotos } from './data';
+import { getMockPhotos } from './data.js';
 
-const similarListElement = document.querySelector('.picture');
+const picturesContainer = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture')
   .content
   .querySelector('.picture');
 
-const similarPictures = getMockPhotos();
+const picturesData = getMockPhotos();
 
-const similarListFragment = document.createDocumentFragment();
+const pictureFragment = document.createDocumentFragment();
 
-similarPictures.forEach(({comments, likes, url}) => {
+picturesData.forEach(({comments, likes, url}) => {
   const pictureElement = pictureTemplate.cloneNode(true);
   pictureElement.querySelector('.picture__comments').textContent = comments;
   pictureElement.querySelector('.picture__likes').textContent = likes;
   pictureElement.querySelector('.picture__img').src = url;
-  similarListFragment.appendChild(pictureElement);
+  pictureFragment.appendChild(pictureElement);
 });
-similarListElement.appendChild(similarListFragment);
+
+picturesContainer.appendChild(pictureFragment);
 
