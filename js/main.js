@@ -1,3 +1,2 @@
-import {getMockPhotos} from'./data.js';
+import './popup.js';
 
-window.console.log(getMockPhotos());
