@@ -11,7 +11,7 @@ const pictureFragment = document.createDocumentFragment();
 
 picturesData.forEach(({comments, likes, url}) => {
   const pictureElement = pictureTemplate.cloneNode(true);
-  pictureElement.querySelector('.picture__comments').textContent = comments;
+  pictureElement.querySelector('.picture__comments').textContent = comments.length;
   pictureElement.querySelector('.picture__likes').textContent = likes;
   pictureElement.querySelector('.picture__img').src = url;
   pictureFragment.appendChild(pictureElement);
@@ -19,3 +19,4 @@ picturesData.forEach(({comments, likes, url}) => {
 
 picturesContainer.appendChild(pictureFragment);
 
+window.console.log(picturesContainer);
