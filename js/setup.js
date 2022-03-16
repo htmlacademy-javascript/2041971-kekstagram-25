@@ -2,11 +2,10 @@ import { picturesData } from './popup.js';
 const showBigPicture = () => {
   const bigPicture = document.querySelector('.big-picture');
   bigPicture.classList.remove('hidden');
-
-  const photoTemplate = picturesData[0];
-  window.console.log(photoTemplate);
+  window.console.log(picturesData);
 };
-window.console.log(showBigPicture);
+showBigPicture(picturesData[0]);
+
 
 // const bodyElements = document.querySelector('body');
 
