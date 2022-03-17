@@ -1,8 +1,8 @@
 import { picturesData } from './popup.js';
-const showBigPicture = () => {
+const showBigPicture = (pictureElement) => {
   const bigPicture = document.querySelector('.big-picture');
   bigPicture.classList.remove('hidden');
-  window.console.log(picturesData);
+  window.console.log(pictureElement);
 };
 showBigPicture(picturesData[0]);
 
