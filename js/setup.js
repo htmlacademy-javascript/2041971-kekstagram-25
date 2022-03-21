@@ -1,21 +1,4 @@
 import { picturesData } from './popup.js';
-import {createComment} from './data.js';
-
-const comment = createComment();
-const createCommentTemplate = (commentData) => {
-  const commentTemplate = `<li class="social__comment">
-     <img
-         class="social__picture"
-         src="${commentData.avatar}"
-         alt="${commentData.name}"
-       width="35" height="35">
-    <p class="social__text">"${commentData.message}"</p>
-</li>`;
-  window.console.log(commentData);
-  return commentTemplate;
-};
-const template = createCommentTemplate(comment);
-window.console.log(template);
 
 const showBigPicture = (pictureElement) => {
   const bigPicture = document.querySelector('.big-picture');
@@ -32,7 +15,14 @@ const showBigPicture = (pictureElement) => {
   likesCount.textContent = pictureElement.likes;
   commentsCount.textContent = pictureElement.comments.length;
   socialCaption.textContent = pictureElement.description;
-  socialComments.innerHTML = template;
+  socialComments.innerHTML = `<li class="social__comment">
+  <img
+      class="social__picture"
+      src="${picturesData.comments.avatar}"
+      alt="${picturesData.comments.name}"
+    width="35" height="35">
+ <p class="social__text">"${picturesData.comments.message}"</p>
+</li>`;
 
   const socialCommentCount = bigPicture.querySelector('.social__comment-count');
   const commentsLoader = bigPicture.querySelector('.comments-loader');
@@ -72,3 +62,20 @@ showBigPicture(picturesData[0]);
 
 // window.console.log(showBigPicture);
 
+//import {createComment} from './data.js';
+
+//const comment = createComment();
+/*const createCommentTemplate = (commentData) => {
+  const commentTemplate = `<li class="social__comment">
+     <img
+         class="social__picture"
+         src="${commentData.avatar}"
+         alt="${commentData.name}"
+       width="35" height="35">
+    <p class="social__text">"${commentData.message}"</p>
+</li>`;
+  window.console.log(commentData);
+  return commentTemplate;
+};
+const template = createCommentTemplate();
+//window.console.log(template);*/
