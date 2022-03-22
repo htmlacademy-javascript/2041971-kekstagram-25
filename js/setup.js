@@ -4,6 +4,16 @@ const showBigPicture = (pictureElement) => {
   const bigPicture = document.querySelector('.big-picture');
   bigPicture.classList.remove('hidden');
 
+  const commentTemplate = () => `<li class="social__comment">
+  <img
+      class="social__picture"
+      src="${pictureElement.comments.avatar}"
+      alt="${pictureElement.comments.name}"
+    width="35" height="35">
+ <p class="social__text">"${pictureElement.comments.message}"</p>
+</li>`;
+  window.console.log(commentTemplate);
+
   const bigImg = bigPicture.querySelector('.big-picture__img');
   const likesCount = bigPicture.querySelector('.likes-count');
   const commentsCount = bigPicture.querySelector('.comments-count');
@@ -14,15 +24,7 @@ const showBigPicture = (pictureElement) => {
   likesCount.textContent = pictureElement.likes;
   commentsCount.textContent = pictureElement.comments.length;
   socialCaption.textContent = pictureElement.description;
-  socialComments.innerHTML = `<li class="social__comment">
-   <img
-       class="social__picture"
-       src="${picturesData[0].comments[0].avatar}"
-       alt="${picturesData[0].comments[0].name}"
-     width="35" height="35">
-  <p class="social__text">"${picturesData[0].comments[0].message}"</p>
- </li>`;
-  window.console.log(socialComments);
+  socialComments.innerHTML = '';
 
   const socialCommentCount = bigPicture.querySelector('.social__comment-count');
   const commentsLoader = bigPicture.querySelector('.comments-loader');
