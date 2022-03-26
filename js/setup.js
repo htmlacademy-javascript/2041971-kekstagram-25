@@ -1,17 +1,18 @@
 import { picturesData } from './popup.js';
 
-const showBigPicture = (pictureElement) => {
-  const bigPicture = document.querySelector('.big-picture');
-  bigPicture.classList.remove('hidden');
-
-  const commentTemplate = (comment) => (`<li class="social__comment">
-  <img
+const commentTemplate = (comment) => (
+  `<li class="social__comment">
+    <img
       class="social__picture"
       src="${comment.avatar}"
       alt="${comment.name}"
-    width="35" height="35">
- <p class="social__text">"${comment.message}"</p>
-</li>`);
+      width="35" height="35">
+    <p class="social__text">"${comment.message}"</p>
+  </li>`);
+
+const showBigPicture = (pictureElement) => {
+  const bigPicture = document.querySelector('.big-picture');
+  bigPicture.classList.remove('hidden');
 
   window.console.log(pictureElement);
 
@@ -36,10 +37,13 @@ showBigPicture(picturesData[0]);
 window.console.log(picturesData);
 
 
-const bodyElements = document.querySelector('body');
-bodyElements.classList.add('modal-open');
-window.console.log(bodyElements);
-const isEscPress = (evt)=>(evt.keyCode===27);
+const bodyElement = document.querySelector('body');
+bodyElement.classList.add('modal-open');
+
+window.console.log(bodyElement);
+
+const escKeyCode = 27;
+const isEscPress = (evt)=>(evt.keyCode===escKeyCode);
 const isMouseClick =(evt)=>(evt.type==='click');
 
 const hideBigPicture = (evt)=>{
@@ -47,13 +51,13 @@ const hideBigPicture = (evt)=>{
   if (isEscPress(evt) || isMouseClick(evt)) {
     const bigPicture = document.querySelector('.big-picture');
     bigPicture.classList.add('hidden');
-    bodyElements.classList.remove('modal-open');
+    bodyElement.classList.remove('modal-open');
   }
 };
 
-const module = ()=>{
+const addListeners = ()=>{
   const buttonCancel = document.querySelector('.big-picture__cancel');
   buttonCancel.addEventListener('click', hideBigPicture);
 };
 
-module();
+addListeners();
