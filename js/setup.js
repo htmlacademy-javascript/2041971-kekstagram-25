@@ -42,8 +42,8 @@ bodyElement.classList.add('modal-open');
 
 window.console.log(bodyElement);
 
-const escKeyCode = 27;
-const isEscPress = (evt)=>(evt.keyCode===escKeyCode);
+const ESC_KEY_KODE = 27;
+const isEscPress = (evt)=>(evt.keyCode===ESC_KEY_KODE);
 const isMouseClick =(evt)=>(evt.type==='click');
 
 const hideBigPicture = (evt)=>{
