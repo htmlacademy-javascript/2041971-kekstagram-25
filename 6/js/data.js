@@ -33,7 +33,7 @@ const createComment = () => {
   return {
     id: randomId,
     avatar: `img/avatar-${randomAvatar}.svg`,
-    messege: getRamdomArrayElement(MESSAGES),
+    message: getRamdomArrayElement(MESSAGES),
     name: getRamdomArrayElement(NAMES),
   };
 };
@@ -58,4 +58,4 @@ const getMockPhotos = () => {
 };
 
 export {getMockPhotos};
-
+//export {createComment};
