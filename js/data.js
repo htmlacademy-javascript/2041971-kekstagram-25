@@ -58,4 +58,4 @@ const getMockPhotos = () => {
 };
 
 export {getMockPhotos};
-//export {createComment};
+

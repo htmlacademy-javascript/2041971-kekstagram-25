@@ -12,9 +12,9 @@ const commentTemplate = (comment) => (
 
 const showBigPicture = (pictureElement) => {
   const bigPicture = document.querySelector('.big-picture');
-  bigPicture.classList.remove('hidden');
+  //bigPicture.classList.remove('hidden');
 
-  window.console.log(pictureElement);
+  //window.console.log(pictureElement);
 
   const bigImg = bigPicture.querySelector('.big-picture__img');
   const likesCount = bigPicture.querySelector('.likes-count');
@@ -34,13 +34,13 @@ const showBigPicture = (pictureElement) => {
   commentsLoader.classList.add('hidden');
 };
 showBigPicture(picturesData[0]);
-window.console.log(picturesData);
+//window.console.log(picturesData);
 
 
 const bodyElement = document.querySelector('body');
 bodyElement.classList.add('modal-open');
 
-window.console.log(bodyElement);
+//window.console.log(bodyElement);
 
 const ESC_KEY_KODE = 27;
 const isEscPress = (evt)=>(evt.keyCode===ESC_KEY_KODE);

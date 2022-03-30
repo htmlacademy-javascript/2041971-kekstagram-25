@@ -21,3 +21,4 @@ picturesContainer.appendChild(pictureFragment);
 
 window.console.log(picturesContainer);
 export {picturesData};
+
