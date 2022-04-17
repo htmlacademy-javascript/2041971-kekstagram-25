@@ -20,3 +20,5 @@ picturesData.forEach(({comments, likes, url}) => {
 picturesContainer.appendChild(pictureFragment);
 
 window.console.log(picturesContainer);
+export {picturesData};
+
